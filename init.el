@@ -41,3 +41,4 @@
 (add-to-list 'auto-mode-alist '("\\.php$" . php-mode))
 
 (load-theme 'zenburn)
+(menu-bar-mode 1)
