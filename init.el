@@ -20,7 +20,7 @@
   (package-refresh-contents))
 
 ;; Add in your own as you wish:
-(defvar my-packages '(monokai-theme ghc haskell-mode mongo pep8 pyde pyflakes pylint pymacs pysmell python python-mode python-pep8 python-pylint zenburn-theme)
+(defvar my-packages '(monokai-theme ghc haskell-mode mongo pep8 pyde pyflakes pylint pymacs pysmell python python-mode python-pep8 python-pylint zenburn-theme auto-complete go-autocomplite go-mode )
   "A list of packages to ensure are installed at launch.")
 
 (dolist (p my-packages)
