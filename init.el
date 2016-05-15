@@ -11,16 +11,13 @@
              '("marmalade" . "https://marmalade-repo.org/packages/"))
 (add-to-list 'package-archives
              '("melpa" . "https://melpa.org/packages/"))
-(when (< emacs-major-version 24)
-  ;; For important compatibility libraries like cl-lib
-  (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
 (package-initialize)
 
 (when (not package-archive-contents)
   (package-refresh-contents))
 
 ;; Add in your own as you wish:
-(defvar my-packages '(monokai-theme ghc haskell-mode mongo pep8 pyde pyflakes pylint pymacs pysmell python python-mode python-pep8 python-pylint zenburn-theme auto-complete go-autocomplite go-mode )
+(defvar my-packages '(monokai-theme ghc haskell-mode mongo pep8 pyde pyflakes pylint pymacs pysmell python python-mode python-pep8 python-pylint zenburn-theme auto-complete go-autocomplete go-mode)
   "A list of packages to ensure are installed at launch.")
 
 (dolist (p my-packages)
@@ -32,29 +29,14 @@
 
 (global-set-key "\M-\\" 'revert-buffer-with-coding-system)
 
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(custom-safe-themes (quote ("dd4db38519d2ad7eb9e2f30bc03fba61a7af49a185edfd44e020aa5345e3dca7" "71b172ea4aad108801421cc5251edb6c792f3adbaecfa1c52e94e3d99634dee7" "71efabb175ea1cf5c9768f10dad62bb2606f41d110152f4ace675325d28df8bd" default))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(default ((t (:background nil)))))
-
-(load "~/.emacs.d/restore-window-pos.el")
-
 (add-to-list 'auto-mode-alist '("\\.html$" . php-mode))
 (add-to-list 'auto-mode-alist '("\\.htm$" . php-mode))
 (add-to-list 'auto-mode-alist '("\\.php$" . php-mode))
 
-(load-theme 'zenburn)
+(load-theme 'monokai)
 (menu-bar-mode 1)
 
-(setenv "GOPATH" "/home/kis/gowork")
+(setenv "GOPATH" "/home/kis/golang")
 
 (defun set-exec-path-from-shell-PATH ()
   (let ((path-from-shell (replace-regexp-in-string
@@ -68,7 +50,7 @@
 (when window-system (set-exec-path-from-shell-PATH))
 
 (setq exec-path (cons "/usr/local/go/bin" exec-path))
-(add-to-list 'exec-path "/home/kis/gowork/bin")
+(add-to-list 'exec-path "/home/kis/golang/bin")
 (add-hook 'before-save-hook 'gofmt-before-save)
 
 (require 'go-autocomplete)
@@ -95,3 +77,23 @@
   ; Godef jump key binding
   (local-set-key (kbd "M-.") 'godef-jump))
 (add-hook 'go-mode-hook 'my-go-mode-hook)
+(load "~/.emacs.d/restore-window-pos.el")
+
+(setq tab-width 4) ; or any other preferred value
+(defvaralias 'c-basic-offset 'tab-width)
+(defvaralias 'cperl-indent-level 'tab-width)
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   (quote
+    ("b94be24dca952ecf5152becb4155d8cfd326cf1680f4f9c44c7b01e291bbfe9b" "9a9e75c15d4017c81a2fe7f83af304ff52acfadd7dde3cb57595919ef2e8d736" default))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(default ((t (:background nil)))))
