@@ -17,7 +17,7 @@
   (package-refresh-contents))
 
 ;; Add in your own as you wish:
-(defvar my-packages '(monokai-theme ghc haskell-mode mongo pep8 pyde pyflakes pylint pymacs pysmell python python-mode python-pep8 python-pylint zenburn-theme auto-complete go-autocomplete go-mode)
+(defvar my-packages '(monokai-theme ghc haskell-mode mongo pep8 pyde pyflakes pylint pymacs pysmell python python-mode python-pep8 python-pylint zenburn-theme auto-complete go-autocomplete go-mode quack)
   "A list of packages to ensure are installed at launch.")
 
 (dolist (p my-packages)
@@ -33,7 +33,7 @@
 (add-to-list 'auto-mode-alist '("\\.htm$" . php-mode))
 (add-to-list 'auto-mode-alist '("\\.php$" . php-mode))
 
-(load-theme 'monokai)
+(load-theme 'monokai t)
 (menu-bar-mode 1)
 
 (setenv "GOPATH" "/home/kis/golang")
@@ -88,9 +88,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(custom-safe-themes
-   (quote
-    ("b94be24dca952ecf5152becb4155d8cfd326cf1680f4f9c44c7b01e291bbfe9b" "9a9e75c15d4017c81a2fe7f83af304ff52acfadd7dde3cb57595919ef2e8d736" default))))
+ '(custom-safe-themes (quote ("c7a9a68bd07e38620a5508fef62ec079d274475c8f92d75ed0c33c45fbe306bc" "b94be24dca952ecf5152becb4155d8cfd326cf1680f4f9c44c7b01e291bbfe9b" "9a9e75c15d4017c81a2fe7f83af304ff52acfadd7dde3cb57595919ef2e8d736" default))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
